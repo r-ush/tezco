@@ -3,9 +3,10 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import Scaffold from "pages/Scaffold";
 import Qr from "pages/qr";
 import TransactionPage from "pages/Transaction";
-import { createTheme } from '@material-ui/core/styles'
+import { createTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/core";
 import DesktopView from "pages/DesktopView";
+import "App.css";
 
 const theme = createTheme({
   palette: {
@@ -13,8 +14,8 @@ const theme = createTheme({
       main: "#2E534B",
     },
     secondary: {
-      main: "#287EF7"
-    }
+      main: "#287EF7",
+    },
   },
   typography: {
     fontFamily: "'Montserrat', sans-serif",

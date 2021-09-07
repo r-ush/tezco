@@ -1,10 +1,11 @@
 import React from "react";
-import { Box, Typography, Button } from "@material-ui/core";
+import { Box, Typography, Button, Grid } from "@material-ui/core";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CallMadeIcon from "@material-ui/icons/CallMade";
 import NftBanner from "assets/nft_banner.png";
+import TezosLogo from "assets/tezos_logo.png";
 
 const WhiteTextTypography = withStyles({
   root: {
@@ -44,7 +45,9 @@ export default function Home() {
     <div>
       <div>
         <Box px={2} py={2} style={{ background: "#2E534B" }}>
-          <WhiteTextTypography>Hello User!</WhiteTextTypography>
+          <WhiteTextTypography style={{ fontWeight: "bold" }} variant="h6">
+            Hello User!
+          </WhiteTextTypography>
         </Box>
       </div>
       <div>
@@ -58,15 +61,67 @@ export default function Home() {
               >
                 Wallet Balance
               </WhiteTextTypography>
-              <WhiteTextTypography variant="h5" component="h2">
-                234
-              </WhiteTextTypography>
-              <WhiteTextTypography
-                className={classes.pos}
-                color="textSecondary"
+
+              <Grid
+                container
+                direction="row"
+                justifyContent="space-between"
+                alignItems="flex-start"
               >
-                zco left
-              </WhiteTextTypography>
+                <Grid item>
+                  <WhiteTextTypography
+                    style={{ fontWeight: "bold" }}
+                    variant="h5"
+                    component="h2"
+                  >
+                    234
+                  </WhiteTextTypography>
+                  <WhiteTextTypography
+                    className={classes.pos}
+                    color="textSecondary"
+                  >
+                    zco left
+                  </WhiteTextTypography>
+                </Grid>
+                <Grid item>
+                  <Box
+                    display="flex"
+                    justifyContent="flex-end"
+                    alignContent="flex-end"
+                  >
+                    <WhiteTextTypography
+                      style={{ fontWeight: "bold" }}
+                      variant="h5"
+                      component="h2"
+                    >
+                      12
+                    </WhiteTextTypography>
+                  </Box>
+                  <WhiteTextTypography
+                    className={classes.pos}
+                    color="textSecondary"
+                  >
+                    Days to next recharge
+                  </WhiteTextTypography>
+                </Grid>
+              </Grid>
+              <Box mt={2}>
+                <Grid
+                  container
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="flex-start"
+                >
+                  <Grid item xs>
+                    <WhiteTextTypography style={{ fontSize: 12 }}>
+                      Exclusive token on first five transactions
+                    </WhiteTextTypography>
+                  </Grid>
+                  <Grid item>
+                    <img src={TezosLogo} />
+                  </Grid>
+                </Grid>
+              </Box>
             </CardContent>
           </Card>
         </Box>
@@ -86,11 +141,15 @@ export default function Home() {
         </Box>
       </div>
       <div>
-        <Box>Recent Contact</Box>
-      </div>
-      <div>
         <Box display="flex" justifyContent="center" px={2} py={1}>
           <img src={NftBanner} height={154} />
+        </Box>
+      </div>
+      <div>
+        <Box px={2} py={1}>
+          <Typography variant="h6" component="h5">
+            Recent Contacts
+          </Typography>
         </Box>
       </div>
     </div>

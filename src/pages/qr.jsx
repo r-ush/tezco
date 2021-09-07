@@ -13,6 +13,28 @@ const useStyles = makeStyles({
   },
 });
 
+const CssTextField = withStyles({
+  root: {
+    "& label.Mui-focused": {
+      color: "white",
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "white",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "white",
+      },
+      "&:hover fieldset": {
+        borderColor: "white",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "white",
+      },
+    },
+  },
+})(TextField);
+
 const WhiteTextTypography = withStyles({
   root: {
     color: "#FFFFFF",
@@ -33,7 +55,7 @@ export default function Qr() {
         alignItems="center"
       >
         <Grid item>
-          <WhiteTextTypography>
+          <WhiteTextTypography style={{ fontWeight: "bold" }}>
             Scan QR code to make payment
           </WhiteTextTypography>
         </Grid>
@@ -49,10 +71,11 @@ export default function Qr() {
         </Grid>
         <Grid item>
           <Box>
-            <TextField
+            <CssTextField
               id="outlined-basic"
               label="Enter Tezoc ID:"
               variant="outlined"
+              inputProps={{ style: { color: "white" } }}
             />
           </Box>
         </Grid>
