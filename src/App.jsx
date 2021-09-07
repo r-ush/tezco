@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import Scaffold from "pages/Scaffold";
 import Qr from "pages/qr";
+import Confirmation from "pages/Confirmation";
 import TransactionPage from "pages/Transaction";
 import Success from "pages/Success";
 import { createTheme } from "@material-ui/core/styles";
@@ -45,6 +46,7 @@ const App = () => {
         <Route exact component={Scaffold} path="/" />
         <Route exact component={Qr} path="/qr" />
         <Route exact component={Success} path="/success" />
+        <Route exact component={Confirmation} path="/confirmation" />
       </Switch>
     </ThemeProvider>
   );
