@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
-import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import ReceiptRoundedIcon from "@material-ui/icons/ReceiptRounded";
 // import predict from "../assets/predict.svg";
 
@@ -16,12 +16,11 @@ const useStyles = makeStyles({
         left: 0,
         bottom: 0,
         background: "#FFFFF",
-        backdropFilter: "blur(10px)",
         boxShadow: "0px -4px 0px #2E534B",
         borderRadius: "12px 12px 0px 0px;",
     },
     menuItem: {
-        color: "#FBFBFB",
+        color: "#C2C2C2",
     },
 });
 
@@ -44,18 +43,13 @@ export default function BottomNavigationBar({ setNavValue, navValue }) {
             />
             <BottomNavigationAction
                 className={classes.menuItem}
-                label="Prediction"
-                icon={<ReceiptRoundedIcon />}
+                label="NFTs"
+                icon={<LocalOfferIcon />}
             />
             <BottomNavigationAction
                 className={classes.menuItem}
-                label="Transaction"
+                label="Transactions"
                 icon={<ReceiptRoundedIcon />}
-            />
-            <BottomNavigationAction
-                className={classes.menuItem}
-                label="Profile"
-                icon={<PersonRoundedIcon />}
             />
         </BottomNavigation>
     );

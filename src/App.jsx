@@ -3,7 +3,6 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import Scaffold from "pages/Scaffold";
 import Qr from "pages/qr";
 import Confirmation from "pages/Confirmation";
-import TransactionPage from "pages/Transaction";
 import Success from "pages/Success";
 import { createTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/core";

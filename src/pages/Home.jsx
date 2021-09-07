@@ -148,7 +148,7 @@ export default function Home() {
       <div>
         <Box px={2} py={1}>
           <Typography variant="h6" component="h5">
-            Recent Contacts
+            Trending Commodities
           </Typography>
         </Box>
       </div>
