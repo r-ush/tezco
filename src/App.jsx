@@ -3,6 +3,7 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import Scaffold from "pages/Scaffold";
 import Qr from "pages/qr";
 import TransactionPage from "pages/Transaction";
+import Success from "pages/Success";
 import { createTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/core";
 import DesktopView from "pages/DesktopView";
@@ -43,6 +44,7 @@ const App = () => {
       <Switch>
         <Route exact component={Scaffold} path="/" />
         <Route exact component={Qr} path="/qr" />
+        <Route exact component={Success} path="/success" />
       </Switch>
     </ThemeProvider>
   );
