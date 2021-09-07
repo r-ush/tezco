@@ -10,12 +10,6 @@ import {
   Grid,
 } from "@material-ui/core";
 
-const WhiteTextTypography = withStyles({
-  root: {
-    color: "#FFFFFF",
-  },
-})(Typography);
-
 export default function Confirmation() {
   const [age, setAge] = React.useState("");
   const handleChange = (event) => {
