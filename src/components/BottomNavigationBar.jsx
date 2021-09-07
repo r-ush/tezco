@@ -15,12 +15,10 @@ const useStyles = makeStyles({
         height: "56px",
         left: 0,
         bottom: 0,
-
-        background: "rgba(62, 255, 162, 0.2)",
+        background: "#FFFFF",
         backdropFilter: "blur(10px)",
-
-        /* Note: backdrop-filter has minimal browser support */
-        borderRadius: "3px",
+        boxShadow: "0px -4px 0px #2E534B",
+        borderRadius: "12px 12px 0px 0px;",
     },
     menuItem: {
         color: "#FBFBFB",

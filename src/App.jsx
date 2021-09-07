@@ -1,13 +1,23 @@
 import React, { useEffect } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import Scaffold from "pages/Scaffold";
+import Qr from "pages/qr";
 import TransactionPage from "pages/Transaction";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import { createTheme } from '@material-ui/core/styles'
+import { ThemeProvider } from "@material-ui/core";
 import DesktopView from "pages/DesktopView";
 
-const theme = createMuiTheme({
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#2E534B",
+    },
+    secondary: {
+      main: "#287EF7"
+    }
+  },
   typography: {
-    fontFamily: "Sk-Modernist",
+    fontFamily: "'Montserrat', sans-serif",
   },
 });
 
@@ -31,7 +41,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Switch>
         <Route exact component={Scaffold} path="/" />
-        <Route exact component={TransactionPage} path="/transaction" />
+        <Route exact component={Qr} path="/qr" />
       </Switch>
     </ThemeProvider>
   );
