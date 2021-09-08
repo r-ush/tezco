@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { React, useEffect, useState } from "react";
 import { Box, Typography, Button, Grid } from "@material-ui/core";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
@@ -72,7 +73,7 @@ export default function Home() {
       setBalance(localStorage.getItem("balance"));
     }
     //Todo: Call token API
-  }, []);
+  }, [lastfetch]);
 
   const daysRemaining = () => {
     var date = new Date();

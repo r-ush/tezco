@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import { Box, Typography, Button } from "@material-ui/core";

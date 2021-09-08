@@ -39,7 +39,7 @@ const App = () => {
       // history.push("/ob1");
       // localStorage.setItem("firstOpen", "true");
     }
-  }, [firstTime, history]);
+  }, [balance, firstTime, history]);
 
   const width = window.innerWidth;
   if (width > 500) {

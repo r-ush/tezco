@@ -43,7 +43,7 @@ const WhiteTextTypography = withStyles({
 })(Typography);
 
 export default function Qr() {
-  const [data, setData] = React.useState("Not Found");
+  const [, setData] = React.useState("Not Found");
   const history = useHistory();
 
   const setTransactionId = (id) => {

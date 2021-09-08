@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import { Grid, Typography, Box, Button } from "@material-ui/core";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Sprout from "assets/sprout.png";
 import { useHistory } from "react-router-dom";
 

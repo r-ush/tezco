@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
-import transactionProfileImg from "assets/transaction_profile.png";
 import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles({

@@ -1,24 +1,19 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
-import {
-  Box,
-  Typography,
-  Button,
-  Grid,
-  LinearProgress,
-} from "@material-ui/core";
+import { Box, Typography, Grid, LinearProgress } from "@material-ui/core";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import BadgeImage from "assets/badges.png";
 import TezosNftRentImage from "assets/tezos_nft_rent.png";
-import Bd1 from "assets/b1.png";
-import Bd2 from "assets/b2.png";
-import Bd3 from "assets/b3.png";
-import Bd4 from "assets/b4.png";
-import Bd5 from "assets/b5.png";
-import { Carousel } from "react-responsive-carousel";
+// import Bd1 from "assets/b1.png";
+// import Bd2 from "assets/b2.png";
+// import Bd3 from "assets/b3.png";
+// import Bd4 from "assets/b4.png";
+// import Bd5 from "assets/b5.png";
+// import { Carousel } from "react-responsive-carousel";
 
 const useStyles = makeStyles({
   root: {
