@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import { Box, Typography, Button } from "@material-ui/core";
 import SuccessImage from "assets/success_image.png";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -21,6 +22,11 @@ const WhiteTextTypography = withStyles({
 
 export default function Success() {
   const classes = useStyles();
+  const history = useHistory();
+
+  const goBackToHome = () => {
+    history.push("/");
+  };
 
   return (
     <div className={classes.root}>
@@ -35,6 +41,7 @@ export default function Success() {
             <img src={SuccessImage} />
           </Box>
           <Box
+            onClick={goBackToHome}
             py={10}
             display="flex"
             flexDirection="column"
@@ -42,12 +49,12 @@ export default function Success() {
             alignItems="center"
           >
             <WhiteTextTypography style={{ fontWeight: "bold", fontSize: 64 }}>
-              123
+              {localStorage.getItem("balance")}
             </WhiteTextTypography>
             <WhiteTextTypography>Your Current Balance</WhiteTextTypography>
           </Box>
           <Box>
-            <Button variant="outlined" color="secondary">
+            <Button onClick={goBackToHome} variant="outlined" color="secondary">
               Go Back to Dashboard
             </Button>
           </Box>

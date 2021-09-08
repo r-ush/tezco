@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import { Grid, Box, Typography, TextField } from "@material-ui/core";
 import BarcodeScannerComponent from "react-qr-barcode-scanner";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -43,6 +44,20 @@ const WhiteTextTypography = withStyles({
 
 export default function Qr() {
   const [data, setData] = React.useState("Not Found");
+  const history = useHistory();
+
+  const setTransactionId = (id) => {
+    if (id.startsWith("tz")) {
+      localStorage.setItem("transactionId", id);
+      history.push("/confirmation");
+    }
+  };
+
+  const handleTextChange = (event) => {
+    const { value } = event.target;
+    console.log(value);
+    setTransactionId(value);
+  };
 
   const classes = useStyles();
   return (
@@ -64,14 +79,18 @@ export default function Qr() {
             // width={300}
             height={300}
             onUpdate={(err, result) => {
-              if (result) setData(result.text);
-              else setData("Not Found");
+              if (result) {
+                setData(result.text);
+                console.log(result.text);
+                setTransactionId(result.text);
+              } else setData("Not Found");
             }}
           />
         </Grid>
         <Grid item>
           <Box>
             <CssTextField
+              onChange={handleTextChange}
               id="outlined-basic"
               label="Enter Tezoc ID:"
               variant="outlined"

@@ -9,12 +9,43 @@ import {
   TextField,
   Grid,
 } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
+import Tezos from "utility/tezos";
 
 export default function Confirmation() {
   const [age, setAge] = React.useState("");
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+  const history = useHistory();
+  const recipient = localStorage.getItem("transactionId");
+  const curBalance = localStorage.getItem("balance");
+  const priceMapping = {
+    5: 10,
+    10: 5,
+    20: 7,
+    30: 8,
+  };
+
+  const transaction = async () => {
+    const tezos = new Tezos();
+    const res = await tezos.sendTransaction(
+      "tz1gcBJ67BBdCxeekyzwjSNf4ovgjyDBStuc",
+      "tz1fNhMg3sTG8ciCtGw8BUA4tR96UUM6CJw6",
+      1
+    );
+    if (res) {
+      history.push("/success");
+    }
+    // Call Tezos function here
+    // Enable progress bar
+    // If success move to confirmation screen
+  };
+
+  const goToHome = () => {
+    history.push("/");
+  };
+
   return (
     <div>
       <Box px={2} py={5}>
@@ -26,9 +57,12 @@ export default function Confirmation() {
         >
           <Box>
             <Typography style={{ fontWeight: "bold" }}>
-              Transferring to XYZ{" "}
+              Transferring to
             </Typography>
           </Box>
+          <Typography style={{ fontWeight: "bold", fontSize: 13 }}>
+            {recipient}
+          </Typography>
           <Box
             py={15}
             display="flex"
@@ -49,7 +83,7 @@ export default function Confirmation() {
               onChange={handleChange}
               displayEmpty
             >
-              <MenuItem value="">
+              <MenuItem value={5}>
                 <em>Petrol</em>
               </MenuItem>
               <MenuItem value={10}>Meat</MenuItem>
@@ -91,7 +125,9 @@ export default function Confirmation() {
               </Typography>
             </Grid>
             <Grid item>
-              <Typography style={{ color: "red" }}>23</Typography>
+              <Typography style={{ color: "red" }}>
+                {priceMapping[age]}
+              </Typography>
             </Grid>
           </Grid>
           <Box m={2} />
@@ -108,12 +144,15 @@ export default function Confirmation() {
             </Grid>
             <Grid item>
               {" "}
-              <Typography style={{ color: "green" }}>153</Typography>
+              <Typography style={{ color: "green" }}>
+                {curBalance - priceMapping[age]}
+              </Typography>
             </Grid>
           </Grid>
           <Box m={2} />
 
           <Button
+            onClick={transaction}
             style={{ padding: 16 }}
             color="primary"
             variant="contained"
@@ -124,6 +163,7 @@ export default function Confirmation() {
 
           <Box m={2} />
           <Button
+            onClick={goToHome}
             style={{ padding: 16 }}
             color="secondary"
             variant="contained"

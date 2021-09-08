@@ -26,8 +26,12 @@ const theme = createTheme({
 const App = () => {
   const history = useHistory();
   const firstTime = localStorage.getItem("firstOpen");
+  const balance = localStorage.getItem("balance");
 
   useEffect(() => {
+    if (!balance) {
+      localStorage.setItem("balance", 100);
+    }
     if (firstTime !== "true") {
       // history.push("/ob1");
       // localStorage.setItem("firstOpen", "true");
