@@ -7,6 +7,7 @@ import {
   Select,
   TextField,
   Grid,
+  CircularProgress,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import Tezos from "utility/tezos";
@@ -14,6 +15,7 @@ import Tezos from "utility/tezos";
 export default function Confirmation() {
   const [age, setAge] = React.useState("");
   const [quantity, setQuantity] = React.useState(1);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -33,6 +35,7 @@ export default function Confirmation() {
   };
 
   const transaction = async () => {
+    setIsLoading(false);
     const tezos = new Tezos();
     const res = await tezos.sendTransaction(
       "tz1gcBJ67BBdCxeekyzwjSNf4ovgjyDBStuc",
@@ -157,16 +160,19 @@ export default function Confirmation() {
             </Grid>
           </Grid>
           <Box m={2} />
-
-          <Button
-            onClick={transaction}
-            style={{ padding: 16 }}
-            color="primary"
-            variant="contained"
-            fullWidth
-          >
-            Confirm and Pay
-          </Button>
+          {isLoading ? (
+            <Button
+              onClick={transaction}
+              style={{ padding: 16 }}
+              color="primary"
+              variant="contained"
+              fullWidth
+            >
+              Confirm and Pay
+            </Button>
+          ) : (
+            <CircularProgress />
+          )}
 
           <Box m={2} />
           <Button
