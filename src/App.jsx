@@ -4,6 +4,9 @@ import Scaffold from "pages/Scaffold";
 import Qr from "pages/qr";
 import Confirmation from "pages/Confirmation";
 import Success from "pages/Success";
+import Ob1 from "components/onboarding/Ob1";
+import Ob2 from "components/onboarding/Ob2";
+import Ob3 from "components/onboarding/Ob3";
 import { createTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/core";
 import DesktopView from "pages/DesktopView";
@@ -50,6 +53,9 @@ const App = () => {
         <Route exact component={Qr} path="/qr" />
         <Route exact component={Success} path="/success" />
         <Route exact component={Confirmation} path="/confirmation" />
+        <Route exact component={Ob1} path="/ob1" />
+        <Route exact component={Ob2} path="/ob2" />
+        <Route exact component={Ob3} path="/ob3" />
       </Switch>
     </ThemeProvider>
   );

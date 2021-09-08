@@ -14,25 +14,31 @@ import Tezos from "utility/tezos";
 
 export default function Confirmation() {
   const [age, setAge] = React.useState("");
+  const [quantity, setQuantity] = React.useState(1);
+
   const handleChange = (event) => {
     setAge(event.target.value);
+  };
+
+  const handQuantChange = (event) => {
+    setQuantity(event.target.value);
   };
   const history = useHistory();
   const recipient = localStorage.getItem("transactionId");
   const curBalance = localStorage.getItem("balance");
   const priceMapping = {
-    5: 10,
+    "": 3,
     10: 5,
-    20: 7,
-    30: 8,
+    20: 2,
+    30: 1,
   };
 
   const transaction = async () => {
     const tezos = new Tezos();
     const res = await tezos.sendTransaction(
       "tz1gcBJ67BBdCxeekyzwjSNf4ovgjyDBStuc",
-      "tz1fNhMg3sTG8ciCtGw8BUA4tR96UUM6CJw6",
-      1
+      recipient,
+      quantity * priceMapping[age]
     );
     if (res) {
       history.push("/success");
@@ -83,7 +89,7 @@ export default function Confirmation() {
               onChange={handleChange}
               displayEmpty
             >
-              <MenuItem value={5}>
+              <MenuItem value="">
                 <em>Petrol</em>
               </MenuItem>
               <MenuItem value={10}>Meat</MenuItem>
@@ -104,6 +110,8 @@ export default function Confirmation() {
                 Enter Quantity
               </Typography>
               <TextField
+                onChange={handQuantChange}
+                placeholder={quantity}
                 style={{ width: 300 }}
                 type={"number"}
                 id="outlined-basic"
@@ -126,7 +134,7 @@ export default function Confirmation() {
             </Grid>
             <Grid item>
               <Typography style={{ color: "red" }}>
-                {priceMapping[age]}
+                {quantity * priceMapping[age]}
               </Typography>
             </Grid>
           </Grid>
@@ -145,7 +153,7 @@ export default function Confirmation() {
             <Grid item>
               {" "}
               <Typography style={{ color: "green" }}>
-                {curBalance - priceMapping[age]}
+                {curBalance - quantity * priceMapping[age]}
               </Typography>
             </Grid>
           </Grid>
