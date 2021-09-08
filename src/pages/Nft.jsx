@@ -13,6 +13,12 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import BadgeImage from "assets/badges.png";
 import TezosNftRentImage from "assets/tezos_nft_rent.png";
+import Bd1 from "assets/b1.png";
+import Bd2 from "assets/b2.png";
+import Bd3 from "assets/b3.png";
+import Bd4 from "assets/b4.png";
+import Bd5 from "assets/b5.png";
+import { Carousel } from "react-responsive-carousel";
 
 const useStyles = makeStyles({
   root: {
@@ -37,9 +43,30 @@ export default function Nft() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <div>
-        <img src={BadgeImage} />
-      </div>
+      <img src={BadgeImage} />
+      {/* <Carousel>
+          <div>
+            <img src={Bd1} height={50} width={50} />
+            <p className="legend">Legend 1</p>
+          </div>
+          <div>
+            <img src={Bd2} height={50} width={50} />
+            <p className="legend">Legend 2</p>
+          </div>
+          <div>
+            <img src={Bd3} height={50} width={50} />
+            <p className="legend">Legend 3</p>
+          </div>
+          <div>
+            <img src={Bd4} height={50} width={50} />
+            <p className="legend">Legend 4</p>
+          </div>
+          <div>
+            <img src={Bd5} height={50} width={50} />
+            <p className="legend">Legend 5</p>
+          </div>
+        </Carousel>
+       */}
       <Box alignItems="center" justifyContent="center" display="flex">
         <WhiteTextTypography style={{ fontWeight: "bold", fontSize: 24 }}>
           Level 1 User
